@@ -13,17 +13,24 @@ contract UnitTrust is  Initializable, UUPSUpgradeable, OwnableUpgradeable {
 
     function initialize() public initializer {
         __Ownable_init();
+        s.totalUnits = 1000;
+        s.remainingUnits = 1000;
+        s.unitPrice = 1 ether;
     }
 
     function _authorizeUpgrade(address) internal override onlyOwner {}
 
-    function initializeTotalUnits(uint256 _totalUnits) public onlyOwner {
-        if (s.totalUints == 0) {
-            s.totalUints = _totalUnits;
-        }
-    }
 
     function getTotalUnits() public view returns(uint256) {
-        return s.totalUints;
+       return s.totalUnits;
+    }
+
+    function purchaseUnit(uint16 _amount) public payable {
+        require(msg.value == _amount * 1 ether, "insufficient amount sent");
+        s.investor[msg.sender].ownedUnits = _amount;
+    }
+
+    function getInvestor(address _investor) public view returns(Investor memory) {
+        return s.investor[_investor];
     }
 }

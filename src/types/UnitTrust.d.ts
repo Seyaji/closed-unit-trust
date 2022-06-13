@@ -22,17 +22,19 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface UnitTrustInterface extends ethers.utils.Interface {
   functions: {
+    "getInvestor(address)": FunctionFragment;
     "getTotalUnits()": FunctionFragment;
     "initialize()": FunctionFragment;
-    "initializeTotalUnits(uint256)": FunctionFragment;
     "owner()": FunctionFragment;
     "proxiableUUID()": FunctionFragment;
+    "purchaseUnit(uint16)": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
     "upgradeTo(address)": FunctionFragment;
     "upgradeToAndCall(address,bytes)": FunctionFragment;
   };
 
+  encodeFunctionData(functionFragment: "getInvestor", values: [string]): string;
   encodeFunctionData(
     functionFragment: "getTotalUnits",
     values?: undefined
@@ -41,14 +43,14 @@ interface UnitTrustInterface extends ethers.utils.Interface {
     functionFragment: "initialize",
     values?: undefined
   ): string;
-  encodeFunctionData(
-    functionFragment: "initializeTotalUnits",
-    values: [BigNumberish]
-  ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "proxiableUUID",
     values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "purchaseUnit",
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
     functionFragment: "renounceOwnership",
@@ -65,17 +67,21 @@ interface UnitTrustInterface extends ethers.utils.Interface {
   ): string;
 
   decodeFunctionResult(
+    functionFragment: "getInvestor",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "getTotalUnits",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "initializeTotalUnits",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "proxiableUUID",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "purchaseUnit",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -165,20 +171,25 @@ export class UnitTrust extends BaseContract {
   interface: UnitTrustInterface;
 
   functions: {
+    getInvestor(
+      _investor: string,
+      overrides?: CallOverrides
+    ): Promise<[[number, number] & { ownedUnits: number; saleUnits: number }]>;
+
     getTotalUnits(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     initialize(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    initializeTotalUnits(
-      _totalUnits: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
     owner(overrides?: CallOverrides): Promise<[string]>;
 
     proxiableUUID(overrides?: CallOverrides): Promise<[string]>;
+
+    purchaseUnit(
+      _amount: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -201,20 +212,25 @@ export class UnitTrust extends BaseContract {
     ): Promise<ContractTransaction>;
   };
 
+  getInvestor(
+    _investor: string,
+    overrides?: CallOverrides
+  ): Promise<[number, number] & { ownedUnits: number; saleUnits: number }>;
+
   getTotalUnits(overrides?: CallOverrides): Promise<BigNumber>;
 
   initialize(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  initializeTotalUnits(
-    _totalUnits: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
   owner(overrides?: CallOverrides): Promise<string>;
 
   proxiableUUID(overrides?: CallOverrides): Promise<string>;
+
+  purchaseUnit(
+    _amount: BigNumberish,
+    overrides?: PayableOverrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   renounceOwnership(
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -237,18 +253,23 @@ export class UnitTrust extends BaseContract {
   ): Promise<ContractTransaction>;
 
   callStatic: {
+    getInvestor(
+      _investor: string,
+      overrides?: CallOverrides
+    ): Promise<[number, number] & { ownedUnits: number; saleUnits: number }>;
+
     getTotalUnits(overrides?: CallOverrides): Promise<BigNumber>;
 
     initialize(overrides?: CallOverrides): Promise<void>;
 
-    initializeTotalUnits(
-      _totalUnits: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
-
     owner(overrides?: CallOverrides): Promise<string>;
 
     proxiableUUID(overrides?: CallOverrides): Promise<string>;
+
+    purchaseUnit(
+      _amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
@@ -328,20 +349,25 @@ export class UnitTrust extends BaseContract {
   };
 
   estimateGas: {
+    getInvestor(
+      _investor: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     getTotalUnits(overrides?: CallOverrides): Promise<BigNumber>;
 
     initialize(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    initializeTotalUnits(
-      _totalUnits: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
     proxiableUUID(overrides?: CallOverrides): Promise<BigNumber>;
+
+    purchaseUnit(
+      _amount: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -365,20 +391,25 @@ export class UnitTrust extends BaseContract {
   };
 
   populateTransaction: {
+    getInvestor(
+      _investor: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     getTotalUnits(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     initialize(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    initializeTotalUnits(
-      _totalUnits: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     proxiableUUID(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    purchaseUnit(
+      _amount: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }

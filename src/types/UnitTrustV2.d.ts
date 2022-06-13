@@ -24,7 +24,6 @@ interface UnitTrustV2Interface extends ethers.utils.Interface {
   functions: {
     "getTotalUnits()": FunctionFragment;
     "initialize()": FunctionFragment;
-    "initializeTotalUnits(uint256)": FunctionFragment;
     "owner()": FunctionFragment;
     "proxiableUUID()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
@@ -40,10 +39,6 @@ interface UnitTrustV2Interface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "initialize",
     values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "initializeTotalUnits",
-    values: [BigNumberish]
   ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
@@ -69,10 +64,6 @@ interface UnitTrustV2Interface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "initializeTotalUnits",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "proxiableUUID",
@@ -171,11 +162,6 @@ export class UnitTrustV2 extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    initializeTotalUnits(
-      _totalUnits: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
     owner(overrides?: CallOverrides): Promise<[string]>;
 
     proxiableUUID(overrides?: CallOverrides): Promise<[string]>;
@@ -207,11 +193,6 @@ export class UnitTrustV2 extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  initializeTotalUnits(
-    _totalUnits: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
   owner(overrides?: CallOverrides): Promise<string>;
 
   proxiableUUID(overrides?: CallOverrides): Promise<string>;
@@ -240,11 +221,6 @@ export class UnitTrustV2 extends BaseContract {
     getTotalUnits(overrides?: CallOverrides): Promise<BigNumber>;
 
     initialize(overrides?: CallOverrides): Promise<void>;
-
-    initializeTotalUnits(
-      _totalUnits: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
 
     owner(overrides?: CallOverrides): Promise<string>;
 
@@ -334,11 +310,6 @@ export class UnitTrustV2 extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    initializeTotalUnits(
-      _totalUnits: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
     proxiableUUID(overrides?: CallOverrides): Promise<BigNumber>;
@@ -368,11 +339,6 @@ export class UnitTrustV2 extends BaseContract {
     getTotalUnits(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     initialize(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    initializeTotalUnits(
-      _totalUnits: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 

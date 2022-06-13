@@ -17,14 +17,10 @@ contract UnitTrustV2 is  Initializable, UUPSUpgradeable, OwnableUpgradeable {
 
     function _authorizeUpgrade(address) internal override onlyOwner {}
 
-    function initializeTotalUnits(uint256 _totalUnits) public onlyOwner {
-        if (s.totalUints == 0) {
-            s.totalUints = _totalUnits;
-        }
+    function getTotalUnits() public view returns(uint256) {
+        return s.totalUnits;
     }
 
-    function getTotalUnits() public view returns(uint256) {
-        return s.totalUints;
-    }
+
 
 }
