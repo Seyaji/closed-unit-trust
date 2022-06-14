@@ -26,10 +26,12 @@ interface UnitTrustInterface extends ethers.utils.Interface {
     "getTotalUnits()": FunctionFragment;
     "initialize()": FunctionFragment;
     "owner()": FunctionFragment;
+    "postUnit(uint16,uint256)": FunctionFragment;
     "proxiableUUID()": FunctionFragment;
     "purchaseUnit(uint16)": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
+    "transferUnit(address,uint16)": FunctionFragment;
     "upgradeTo(address)": FunctionFragment;
     "upgradeToAndCall(address,bytes)": FunctionFragment;
   };
@@ -45,6 +47,10 @@ interface UnitTrustInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
+    functionFragment: "postUnit",
+    values: [BigNumberish, BigNumberish]
+  ): string;
+  encodeFunctionData(
     functionFragment: "proxiableUUID",
     values?: undefined
   ): string;
@@ -59,6 +65,10 @@ interface UnitTrustInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "transferOwnership",
     values: [string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "transferUnit",
+    values: [string, BigNumberish]
   ): string;
   encodeFunctionData(functionFragment: "upgradeTo", values: [string]): string;
   encodeFunctionData(
@@ -76,6 +86,7 @@ interface UnitTrustInterface extends ethers.utils.Interface {
   ): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "postUnit", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "proxiableUUID",
     data: BytesLike
@@ -90,6 +101,10 @@ interface UnitTrustInterface extends ethers.utils.Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "transferOwnership",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "transferUnit",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "upgradeTo", data: BytesLike): Result;
@@ -174,7 +189,16 @@ export class UnitTrust extends BaseContract {
     getInvestor(
       _investor: string,
       overrides?: CallOverrides
-    ): Promise<[[number, number] & { ownedUnits: number; saleUnits: number }]>;
+    ): Promise<
+      [
+        [BigNumber, BigNumber, number, number] & {
+          balance: BigNumber;
+          salePrice: BigNumber;
+          ownedUnits: number;
+          saleUnits: number;
+        }
+      ]
+    >;
 
     getTotalUnits(overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -183,6 +207,12 @@ export class UnitTrust extends BaseContract {
     ): Promise<ContractTransaction>;
 
     owner(overrides?: CallOverrides): Promise<[string]>;
+
+    postUnit(
+      _amount: BigNumberish,
+      _salePrice: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     proxiableUUID(overrides?: CallOverrides): Promise<[string]>;
 
@@ -200,6 +230,12 @@ export class UnitTrust extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    transferUnit(
+      _seller: string,
+      _amount: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     upgradeTo(
       newImplementation: string,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -215,7 +251,14 @@ export class UnitTrust extends BaseContract {
   getInvestor(
     _investor: string,
     overrides?: CallOverrides
-  ): Promise<[number, number] & { ownedUnits: number; saleUnits: number }>;
+  ): Promise<
+    [BigNumber, BigNumber, number, number] & {
+      balance: BigNumber;
+      salePrice: BigNumber;
+      ownedUnits: number;
+      saleUnits: number;
+    }
+  >;
 
   getTotalUnits(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -224,6 +267,12 @@ export class UnitTrust extends BaseContract {
   ): Promise<ContractTransaction>;
 
   owner(overrides?: CallOverrides): Promise<string>;
+
+  postUnit(
+    _amount: BigNumberish,
+    _salePrice: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   proxiableUUID(overrides?: CallOverrides): Promise<string>;
 
@@ -241,6 +290,12 @@ export class UnitTrust extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  transferUnit(
+    _seller: string,
+    _amount: BigNumberish,
+    overrides?: PayableOverrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   upgradeTo(
     newImplementation: string,
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -256,13 +311,26 @@ export class UnitTrust extends BaseContract {
     getInvestor(
       _investor: string,
       overrides?: CallOverrides
-    ): Promise<[number, number] & { ownedUnits: number; saleUnits: number }>;
+    ): Promise<
+      [BigNumber, BigNumber, number, number] & {
+        balance: BigNumber;
+        salePrice: BigNumber;
+        ownedUnits: number;
+        saleUnits: number;
+      }
+    >;
 
     getTotalUnits(overrides?: CallOverrides): Promise<BigNumber>;
 
     initialize(overrides?: CallOverrides): Promise<void>;
 
     owner(overrides?: CallOverrides): Promise<string>;
+
+    postUnit(
+      _amount: BigNumberish,
+      _salePrice: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     proxiableUUID(overrides?: CallOverrides): Promise<string>;
 
@@ -275,6 +343,12 @@ export class UnitTrust extends BaseContract {
 
     transferOwnership(
       newOwner: string,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    transferUnit(
+      _seller: string,
+      _amount: BigNumberish,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -362,6 +436,12 @@ export class UnitTrust extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
+    postUnit(
+      _amount: BigNumberish,
+      _salePrice: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     proxiableUUID(overrides?: CallOverrides): Promise<BigNumber>;
 
     purchaseUnit(
@@ -376,6 +456,12 @@ export class UnitTrust extends BaseContract {
     transferOwnership(
       newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    transferUnit(
+      _seller: string,
+      _amount: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     upgradeTo(
@@ -404,6 +490,12 @@ export class UnitTrust extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
+    postUnit(
+      _amount: BigNumberish,
+      _salePrice: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     proxiableUUID(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     purchaseUnit(
@@ -418,6 +510,12 @@ export class UnitTrust extends BaseContract {
     transferOwnership(
       newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    transferUnit(
+      _seller: string,
+      _amount: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     upgradeTo(
