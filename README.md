@@ -1,8 +1,37 @@
-# Advanced Sample Hardhat Project
+# Decentralised Closed Unit Trust
 
-This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
+This is a smart contract based on the ethereum network that allows the creation of a 'unit' trust which has a limited amount of units available for 
+purchase from prospective investors. 
 
-The project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
+its end goals are;
+- allow purchase of a fixed amounts of ionvestment units
+- allow transfew of these units to other ethereum addresses 
+- collect fees from transfer costs 
+- payout dividends from underlying assets
+- have a hosted market place where investors can browse units for sale
+
+
+# setup 
+you will need nvm as this repo requires node 16 
+
+- nvm use 16 
+- yarn install
+- npx hardhat node
+
+in a seperate terminal: 
+- npx hardhat test --network localhost
+
+
+# deploying to the ethereum or test network 
+Make sure ther network has been added to hardhat.config
+
+1. Setup a wallet with a provider, 
+2. Create a alchemy account
+3. Get the api url from alchemy
+4. update the details in .env.example
+
+run:
+- npx hardhat test --network _NETWORK_NAME_
 
 Try running some of the following tasks:
 
