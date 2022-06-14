@@ -126,4 +126,14 @@ describe("UnitTrust tests", function() {
         expect(investor1.saleUnits).to.equal(0)
         expect(investor2.ownedUnits).to.equal(5)
     })
+
+    it("should prevent investors from transferrin g units when incorrect ampount sent", async function() {
+        await unitTrust.connect(inv1).purchaseUnit(1, {
+            value: ethers.utils.parseEther("1")
+        })
+        await unitTrust.connect(inv1).postUnit(1, "1100000000000000000")
+        await expect(unitTrust.connect(inv2).transferUnit(inv1.address, 1, {
+            value: ethers.utils.parseEther("0.5")
+        })).to.be.revertedWith("Incorrect amount sent")
+    })
 })
