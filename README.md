@@ -4,8 +4,8 @@ This is a smart contract based on the ethereum network that allows the creation 
 purchase from prospective investors. 
 
 its end goals are;
-- allow purchase of a fixed amounts of ionvestment units
-- allow transfew of these units to other ethereum addresses 
+- allow purchase of a fixed amounts of investment units
+- allow transfer of these units to other ethereum addresses 
 - collect fees from transfer costs 
 - payout dividends from underlying assets
 - have a hosted market place where investors can browse units for sale
