@@ -191,11 +191,12 @@ export class UnitTrust extends BaseContract {
       overrides?: CallOverrides
     ): Promise<
       [
-        [BigNumber, BigNumber, number, number] & {
+        [BigNumber, BigNumber, number, number, boolean] & {
           balance: BigNumber;
           salePrice: BigNumber;
           ownedUnits: number;
           saleUnits: number;
+          authorized: boolean;
         }
       ]
     >;
@@ -252,11 +253,12 @@ export class UnitTrust extends BaseContract {
     _investor: string,
     overrides?: CallOverrides
   ): Promise<
-    [BigNumber, BigNumber, number, number] & {
+    [BigNumber, BigNumber, number, number, boolean] & {
       balance: BigNumber;
       salePrice: BigNumber;
       ownedUnits: number;
       saleUnits: number;
+      authorized: boolean;
     }
   >;
 
@@ -312,11 +314,12 @@ export class UnitTrust extends BaseContract {
       _investor: string,
       overrides?: CallOverrides
     ): Promise<
-      [BigNumber, BigNumber, number, number] & {
+      [BigNumber, BigNumber, number, number, boolean] & {
         balance: BigNumber;
         salePrice: BigNumber;
         ownedUnits: number;
         saleUnits: number;
+        authorized: boolean;
       }
     >;
 

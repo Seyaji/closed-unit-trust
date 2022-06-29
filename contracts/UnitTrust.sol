@@ -18,7 +18,7 @@ contract UnitTrust is  Initializable, UUPSUpgradeable, OwnableUpgradeable {
         s.totalUnits = 1000;
         s.remainingUnits = 1000;
         s.unitPrice = 1 ether;
-        s.transferFee = 5000000 gwei;
+        s.transferFee = 10000000 gwei;
     }
 
     function _authorizeUpgrade(address) internal override onlyOwner {}
@@ -34,9 +34,10 @@ contract UnitTrust is  Initializable, UUPSUpgradeable, OwnableUpgradeable {
 
     function purchaseUnit(uint16 _amount) public payable {
         require(s.remainingUnits >= _amount, "No enough units");
-        require(msg.value == _amount * 1 ether, "Incorrect amount sent");
+        require(msg.value == _amount * 1 ether + s.transferFee, "Incorrect amount sent");
         s.investor[msg.sender].ownedUnits = _amount;
         s.remainingUnits -= _amount;
+        s.balance += s.transferFee;
     }
 
     function postUnit(uint16 _amount, uint256 _salePrice) public {
@@ -48,11 +49,12 @@ contract UnitTrust is  Initializable, UUPSUpgradeable, OwnableUpgradeable {
     }
 
     function transferUnit(address _seller, uint16 _amount) public payable {
-        require(msg.value == _amount * s.investor[_seller].salePrice, "Incorrect amount sent");
+        require(msg.value == (_amount * s.investor[_seller].salePrice) + s.transferFee , "Incorrect amount sent");
         require(s.investor[_seller].saleUnits >= _amount, "Not enough units for sale");
         s.investor[_seller].balance += msg.value;
         s.investor[_seller].saleUnits -= _amount;
         s.investor[msg.sender].ownedUnits += _amount;
+        s.balance += s.transferFee;
     }
 
 }
