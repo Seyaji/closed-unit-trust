@@ -1,8 +1,6 @@
 import { ethers, upgrades } from "hardhat"
 
 import { UnitTrust } from "../src/types/index"
-import { UnitTrustV2 } from "../src/types/index"
-import UnitTrustArtifact from "../artifacts/contracts/UnitTrust.sol/UnitTrust.json"
 
 (async () => {
 
