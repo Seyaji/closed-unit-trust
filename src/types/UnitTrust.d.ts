@@ -22,9 +22,13 @@ import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
 interface UnitTrustInterface extends ethers.utils.Interface {
   functions: {
+    "closeUnitTrust(uint256)": FunctionFragment;
+    "fundWithdraw(uint256)": FunctionFragment;
     "getInvestor(address)": FunctionFragment;
+    "getRemainingUnits()": FunctionFragment;
     "getTotalUnits()": FunctionFragment;
     "initialize()": FunctionFragment;
+    "investorWithdraw(uint256)": FunctionFragment;
     "owner()": FunctionFragment;
     "postUnit(uint16,uint256)": FunctionFragment;
     "proxiableUUID()": FunctionFragment;
@@ -36,7 +40,19 @@ interface UnitTrustInterface extends ethers.utils.Interface {
     "upgradeToAndCall(address,bytes)": FunctionFragment;
   };
 
+  encodeFunctionData(
+    functionFragment: "closeUnitTrust",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "fundWithdraw",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "getInvestor", values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "getRemainingUnits",
+    values?: undefined
+  ): string;
   encodeFunctionData(
     functionFragment: "getTotalUnits",
     values?: undefined
@@ -44,6 +60,10 @@ interface UnitTrustInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "initialize",
     values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "investorWithdraw",
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
@@ -77,7 +97,19 @@ interface UnitTrustInterface extends ethers.utils.Interface {
   ): string;
 
   decodeFunctionResult(
+    functionFragment: "closeUnitTrust",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "fundWithdraw",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "getInvestor",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getRemainingUnits",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -85,6 +117,10 @@ interface UnitTrustInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "investorWithdraw",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "postUnit", data: BytesLike): Result;
   decodeFunctionResult(
@@ -186,6 +222,16 @@ export class UnitTrust extends BaseContract {
   interface: UnitTrustInterface;
 
   functions: {
+    closeUnitTrust(
+      _amount: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    fundWithdraw(
+      _amount: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     getInvestor(
       _investor: string,
       overrides?: CallOverrides
@@ -201,10 +247,17 @@ export class UnitTrust extends BaseContract {
       ]
     >;
 
+    getRemainingUnits(overrides?: CallOverrides): Promise<[BigNumber]>;
+
     getTotalUnits(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     initialize(
       overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    investorWithdraw(
+      _amount: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     owner(overrides?: CallOverrides): Promise<[string]>;
@@ -249,6 +302,16 @@ export class UnitTrust extends BaseContract {
     ): Promise<ContractTransaction>;
   };
 
+  closeUnitTrust(
+    _amount: BigNumberish,
+    overrides?: PayableOverrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  fundWithdraw(
+    _amount: BigNumberish,
+    overrides?: PayableOverrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   getInvestor(
     _investor: string,
     overrides?: CallOverrides
@@ -262,10 +325,17 @@ export class UnitTrust extends BaseContract {
     }
   >;
 
+  getRemainingUnits(overrides?: CallOverrides): Promise<BigNumber>;
+
   getTotalUnits(overrides?: CallOverrides): Promise<BigNumber>;
 
   initialize(
     overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  investorWithdraw(
+    _amount: BigNumberish,
+    overrides?: PayableOverrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   owner(overrides?: CallOverrides): Promise<string>;
@@ -310,6 +380,16 @@ export class UnitTrust extends BaseContract {
   ): Promise<ContractTransaction>;
 
   callStatic: {
+    closeUnitTrust(
+      _amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    fundWithdraw(
+      _amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     getInvestor(
       _investor: string,
       overrides?: CallOverrides
@@ -323,9 +403,16 @@ export class UnitTrust extends BaseContract {
       }
     >;
 
+    getRemainingUnits(overrides?: CallOverrides): Promise<BigNumber>;
+
     getTotalUnits(overrides?: CallOverrides): Promise<BigNumber>;
 
     initialize(overrides?: CallOverrides): Promise<void>;
+
+    investorWithdraw(
+      _amount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     owner(overrides?: CallOverrides): Promise<string>;
 
@@ -426,15 +513,32 @@ export class UnitTrust extends BaseContract {
   };
 
   estimateGas: {
+    closeUnitTrust(
+      _amount: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    fundWithdraw(
+      _amount: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     getInvestor(
       _investor: string,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    getRemainingUnits(overrides?: CallOverrides): Promise<BigNumber>;
+
     getTotalUnits(overrides?: CallOverrides): Promise<BigNumber>;
 
     initialize(
       overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    investorWithdraw(
+      _amount: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
@@ -480,15 +584,32 @@ export class UnitTrust extends BaseContract {
   };
 
   populateTransaction: {
+    closeUnitTrust(
+      _amount: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    fundWithdraw(
+      _amount: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     getInvestor(
       _investor: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    getRemainingUnits(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
     getTotalUnits(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     initialize(
       overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    investorWithdraw(
+      _amount: BigNumberish,
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
