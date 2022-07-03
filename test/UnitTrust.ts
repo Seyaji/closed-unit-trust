@@ -86,7 +86,7 @@ describe("UnitTrust tests", function() {
         await unitTrust.connect(inv1).purchaseUnit(10, {
             value: ethers.utils.parseEther("10.01")
         })
-        await unitTrust.connect(inv1).postUnit(5, "1100000000000000000")
+        await unitTrust.connect(inv1).postUnit(5, ethers.utils.parseEther("1.10"))
 
         const getInvestor = await unitTrust.getInvestor(inv1.address)
         const investor = pairKeys(investorKeys, getInvestor)
@@ -101,7 +101,7 @@ describe("UnitTrust tests", function() {
             value: ethers.utils.parseEther("10.01")
         })
 
-        await expect(unitTrust.connect(inv1).postUnit(11, "1100000000000000000")).to.be.revertedWith("Not enough units")
+        await expect(unitTrust.connect(inv1).postUnit(11, ethers.utils.parseEther("1.10"))).to.be.revertedWith("Not enough units")
 
         const getInvestor = await unitTrust.getInvestor(inv1.address)
         const investor = pairKeys(investorKeys, getInvestor)
@@ -113,7 +113,7 @@ describe("UnitTrust tests", function() {
         await unitTrust.connect(inv1).purchaseUnit(10, {
             value: ethers.utils.parseEther("10.01")
         })
-        await unitTrust.connect(inv1).postUnit(5, "1100000000000000000")
+        await unitTrust.connect(inv1).postUnit(5, ethers.utils.parseEther("1.10"))
         await unitTrust.connect(inv2).transferUnit(inv1.address, 5, {
             value: ethers.utils.parseEther("5.51")
         })
@@ -131,9 +131,37 @@ describe("UnitTrust tests", function() {
         await unitTrust.connect(inv1).purchaseUnit(1, {
             value: ethers.utils.parseEther("1.01")
         })
-        await unitTrust.connect(inv1).postUnit(1, "1100000000000000000")
+        await unitTrust.connect(inv1).postUnit(1, ethers.utils.parseEther("1.00"))
         await expect(unitTrust.connect(inv2).transferUnit(inv1.address, 1, {
             value: ethers.utils.parseEther("0.5")
         })).to.be.revertedWith("Incorrect amount sent")
+    })
+
+    it('should allow the contract \'owner\' to withdraw funds', async () => {
+        await unitTrust.connect(inv1).purchaseUnit(1, {
+            value: ethers.utils.parseEther("1.01")
+        })
+
+        await unitTrust.fundWithdraw(ethers.utils.parseEther("0.01"))
+    })
+
+    it('should be able to close the unitTrust', async () => {
+        await unitTrust.connect(inv1).purchaseUnit(10, {
+            value: ethers.utils.parseEther("10.01")
+        })
+
+        await unitTrust.closeUnitTrust(ethers.utils.parseEther("1.00"))
+    })
+
+    it('should allow investors to withdraw cleared balance', async () => {
+        await unitTrust.connect(inv1).purchaseUnit(10, {
+            value: ethers.utils.parseEther("10.01")
+        })
+
+        await unitTrust.connect(inv1).postUnit(5, ethers.utils.parseEther("2.00"))
+        await unitTrust.connect(inv2).transferUnit(inv1.address, 5, {
+            value: ethers.utils.parseEther("10.01")
+        })
+
     })
 })
