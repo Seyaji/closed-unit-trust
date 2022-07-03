@@ -28,6 +28,10 @@ contract UnitTrust is  Initializable, UUPSUpgradeable, OwnableUpgradeable {
        return s.totalUnits;
     }
 
+    function getRemainingUnits() public view returns(uint256) {
+       return s.totalUnits;
+    }
+
     function getInvestor(address _investor) public view returns(Investor memory) {
         return s.investor[_investor];
     }
@@ -57,4 +61,21 @@ contract UnitTrust is  Initializable, UUPSUpgradeable, OwnableUpgradeable {
         s.balance += s.transferFee;
     }
 
+    function fundWithdraw(uint256 _amount) public payable onlyOwner {
+        require(s.balance >= _amount, "Not enough funds");
+        console.log(s.balance);
+        s.balance -= _amount;
+        payable(msg.sender).transfer(_amount);
+    }
+
+    function closeUnitTrust(uint256 _amount) public payable onlyOwner {
+        payable(msg.sender).transfer(_amount * (s.totalUnits - s.remainingUnits));
+        s.remainingUnits = 0;
+    }
+
+    function investorWithdraw(uint256 _amount) public payable {
+        require(s.investor[msg.sender].balance >= _amount, "Not enough funds");
+        s.investor[msg.sender].balance -= _amount;
+        payable(msg.sender).transfer(_amount);
+    }
 }
