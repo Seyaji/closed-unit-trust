@@ -742,11 +742,6 @@
       "kind": "uups"
     },
     {
-      "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-      "txHash": "0xc17304c20beb1b3a33f64fdf93da1fb6ddef21323799824139b7bb079dffc68b",
-      "kind": "uups"
-    },
-    {
       "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
       "txHash": "0x04ff2cd9b5fc32df8cb4dbf38906a3ccbf62efe2c3cebb9d3894be36ea66a23d",
       "kind": "uups"
@@ -2194,6 +2189,296 @@
     {
       "address": "0x6484EB0792c646A4827638Fc1B6F20461418eB00",
       "txHash": "0x3db58abfaa08104478233892740c8be3d95ae3c2af4347987aa20abcd5178568",
+      "kind": "uups"
+    },
+    {
+      "address": "0xA75E74a5109Ed8221070142D15cEBfFe9642F489",
+      "txHash": "0xcf013d20edd1d598ef7f3400e2a98a7c7f02493cf73ae364c46e36bc47751a2b",
+      "kind": "uups"
+    },
+    {
+      "address": "0x26291175Fa0Ea3C8583fEdEB56805eA68289b105",
+      "txHash": "0x5217064dfbf3303f671cc00b9c98c2b6468db54308c001139b68cefe85d8647d",
+      "kind": "uups"
+    },
+    {
+      "address": "0x840748F7Fd3EA956E5f4c88001da5CC1ABCBc038",
+      "txHash": "0x5688a22fe65718f8c2548b56bc136ba3a797c453b78e43851c4cec2f516a9386",
+      "kind": "uups"
+    },
+    {
+      "address": "0x1bEfE2d8417e22Da2E0432560ef9B2aB68Ab75Ad",
+      "txHash": "0xd7a3e59f4d328f8ad8c2a31d8e81febdd20e9a08a188d3746b260500ad882863",
+      "kind": "uups"
+    },
+    {
+      "address": "0xde79380FBd39e08150adAA5C6c9dE3146f53029e",
+      "txHash": "0xffc89f8ec34622a4d5c3fba7c541d084a81d31d8f8072def749dc75b6eb8de7e",
+      "kind": "uups"
+    },
+    {
+      "address": "0xbFD3c8A956AFB7a9754C951D03C9aDdA7EC5d638",
+      "txHash": "0x3bf9b321cf2a4e4549bfa3e994aac1614c531be2d799f366e304ffb19298ae74",
+      "kind": "uups"
+    },
+    {
+      "address": "0x38F6F2caE52217101D7CA2a5eC040014b4164E6C",
+      "txHash": "0x58ddec39bd159ea5934797c7eca931c7a515dcd7a5feff9f9f42b8a0f7dc3c21",
+      "kind": "uups"
+    },
+    {
+      "address": "0xc075BC0f734EFE6ceD866324fc2A9DBe1065CBB1",
+      "txHash": "0x902e4c1feb0b3c4ca80dbe614be420560728fdb183cf50b546e74c9b22e90e5b",
+      "kind": "uups"
+    },
+    {
+      "address": "0x837a41023CF81234f89F956C94D676918b4791c1",
+      "txHash": "0x13c355d0e442050d04b11d71af24ae370cd4f3e4be75063b3c6dac94078d8530",
+      "kind": "uups"
+    },
+    {
+      "address": "0x04d7478fDF318C3C22cECE62Da9D78ff94807D77",
+      "txHash": "0x7dbe0e7835dbbd9bfcb70ea93ae1b5279922c3126e966c5f7492fd6f4bafdc8c",
+      "kind": "uups"
+    },
+    {
+      "address": "0xd9abC93F81394Bd161a1b24B03518e0a570bDEAd",
+      "txHash": "0xfe9e964842466da24f58327dc4ada17bcd17c34205e1923cf318ea9462ba5017",
+      "kind": "uups"
+    },
+    {
+      "address": "0xcB0f2a13098f8e841e6Adfa5B17Ec00508b27665",
+      "txHash": "0xd5b8fc611dae4dad29aa7525b6984d7a0a19c2ffcc30894aeee8da721b6fc12e",
+      "kind": "uups"
+    },
+    {
+      "address": "0x6345e50859b0Ce82D8A495ba9894C6C81de385F3",
+      "txHash": "0x6e74db5b58508296887e822710c2469d64b9b06e4ce7af931d0498bf947650dc",
+      "kind": "uups"
+    },
+    {
+      "address": "0x7Ce73F8f636C6bD3357A0A8a59e0ab6462C955B0",
+      "txHash": "0xf710c85fdc99dd929b448cd3855ddf397101920a85d31a5fcfe9ce7f5c6952fc",
+      "kind": "uups"
+    },
+    {
+      "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "txHash": "0xfa6569ac52ba4f390951ec49dc41d622f70d80304f4366e06bcd67d8dc5e77ca",
+      "kind": "uups"
+    },
+    {
+      "address": "0x746a48E39dC57Ff14B872B8979E20efE5E5100B1",
+      "txHash": "0x5ac02ca6f408c5cc2425bfffb9d3e860dd0e7b4647e9e74e2e62c60a81c72b71",
+      "kind": "uups"
+    },
+    {
+      "address": "0x96E303b6D807c0824E83f954784e2d6f3614f167",
+      "txHash": "0xaa85f173ca2d012634b459b6983977e54b3ee2eefdd692eb1039c9fce6948abf",
+      "kind": "uups"
+    },
+    {
+      "address": "0x9CC8B5379C40E24F374cd55973c138fff83ed214",
+      "txHash": "0xbc2b87caaf3c12bf2643f8a1e492d37f82b08ba2f44457eff03c92ccc28c3d01",
+      "kind": "uups"
+    },
+    {
+      "address": "0xd3b893cd083f07Fe371c1a87393576e7B01C52C6",
+      "txHash": "0x60f47a033e3553c615d7ad066fe4d96efa9fb541f703ccd87a2b3088821be366",
+      "kind": "uups"
+    },
+    {
+      "address": "0x930b218f3e63eE452c13561057a8d5E61367d5b7",
+      "txHash": "0xfe79322172ea8c89347c82bbfec84894cb853d37420ec8e5f3d094e671dcd8fd",
+      "kind": "uups"
+    },
+    {
+      "address": "0x721d8077771Ebf9B931733986d619aceea412a1C",
+      "txHash": "0xdd001f69ad1d81f9feb96414ea305362f60882d38f22ad9c3d9887912fc6e815",
+      "kind": "uups"
+    },
+    {
+      "address": "0x38c76A767d45Fc390160449948aF80569E2C4217",
+      "txHash": "0xe9410ac06299635aeca3dd4e744963aa1b52dc4ef2d36976e126a66fa6b3eabd",
+      "kind": "uups"
+    },
+    {
+      "address": "0xDC57724Ea354ec925BaFfCA0cCf8A1248a8E5CF1",
+      "txHash": "0x6d5354e094ba33758af3f1dafd1fa1afa415d0501bf26d4ca8a1bd5e6a7d4d83",
+      "kind": "uups"
+    },
+    {
+      "address": "0xfc073209b7936A771F77F63D42019a3a93311869",
+      "txHash": "0xc9cf61676ce161e928b18f34875594697bb6af8e0061348a2610747bd87f4321",
+      "kind": "uups"
+    },
+    {
+      "address": "0xb4e9A5BC64DC07f890367F72941403EEd7faDCbB",
+      "txHash": "0x83c0345df1aa3c966c22897de5c7e30b60d7f6dc1ac53c4c4cb542abeb6cbf11",
+      "kind": "uups"
+    },
+    {
+      "address": "0xa8d297D643a11cE83b432e87eEBce6bee0fd2bAb",
+      "txHash": "0x6ef500eab3643f983b217788e69d64908d3dc16c3d5752c158cbf1866b0543cf",
+      "kind": "uups"
+    },
+    {
+      "address": "0x6Da3D07a6BF01F02fB41c02984a49B5d9Aa6ea92",
+      "txHash": "0xc0a12bff08b8c7a10b1a84f6b9eeaf38d8be391a0e616e39fc6c39cccb0d4305",
+      "kind": "uups"
+    },
+    {
+      "address": "0x9D3999af03458c11C78F7e6C0fAE712b455D4e33",
+      "txHash": "0xae8958724af0ddd514ac027fc47050aa2cf27339179c3939c68777018ea4ab87",
+      "kind": "uups"
+    },
+    {
+      "address": "0x8731d45ff9684d380302573cCFafd994Dfa7f7d3",
+      "txHash": "0x983892ac3b40f16db11aa598de69a7fa203705277efc2c2958108af717202e4b",
+      "kind": "uups"
+    },
+    {
+      "address": "0x969E3128DB078b179E9F3b3679710d2443cCDB72",
+      "txHash": "0x68e917a59b957397df8af6c2fdc3e4bd63c29e85eb6c630e958e1fdbed7099a8",
+      "kind": "uups"
+    },
+    {
+      "address": "0x20Dc424c5fa468CbB1c702308F0cC9c14DA2825C",
+      "txHash": "0x3afb08bd4bc837eeac3839cc6da7d5716d6b71caf6fd1b3a80951fca07e16b75",
+      "kind": "uups"
+    },
+    {
+      "address": "0x4653251486a57f90Ee89F9f34E098b9218659b83",
+      "txHash": "0x378d0fd83304b79520e0b3dff929a127a5869f3eddc23f669c8a9164abd930a1",
+      "kind": "uups"
+    },
+    {
+      "address": "0x89ec9355b1Bcc964e576211c8B011BD709083f8d",
+      "txHash": "0xdb92092e667571b2f526940f6d5ac4187405953dcfdf46197fcacfee9ce6f9a0",
+      "kind": "uups"
+    },
+    {
+      "address": "0x52bad4A8584909895C22bdEcf8DBF33314468Fb0",
+      "txHash": "0x140bc52e8560c3de266e7f306eeeef954eab4e137e5a81ae93978c338d8258b4",
+      "kind": "uups"
+    },
+    {
+      "address": "0xed12bE400A07910E4d4E743E4ceE26ab1FC9a961",
+      "txHash": "0x72ba65c0b0fd083809e0a77f2afbd9ed3c5b2e94f6549aad208968e5baff38fa",
+      "kind": "uups"
+    },
+    {
+      "address": "0x1B25157F05B25438441bF7CDe38A95A55ccf8E50",
+      "txHash": "0x9de83ae29c0ac61ebacfcf2878af4014f4e6a3f079b3bc1dbcc31865164b78bf",
+      "kind": "uups"
+    },
+    {
+      "address": "0xc775bF567D67018dfFac4E89a7Cf10f0EDd0Be93",
+      "txHash": "0x059d90460d5f62779d2cfd9c4e36cc0b8c8ad75cc2004cb387db3d6e53f0e376",
+      "kind": "uups"
+    },
+    {
+      "address": "0x3489745eff9525CCC3d8c648102FE2cf3485e228",
+      "txHash": "0x2c457e520bf442bd4c01b598e40391caaf32f6abb439a048fea0cd4f10ba4770",
+      "kind": "uups"
+    },
+    {
+      "address": "0x43b9Ef43D415e84aD9964567002d648b11747A8f",
+      "txHash": "0x3515bd1ee8e37d9d82e9b858c22376ab14927e5c61aac8a1a3763b2c15138d2b",
+      "kind": "uups"
+    },
+    {
+      "address": "0xFCa5Bb3732185AE6AaFC65aD8C9A4fBFf21DbaaD",
+      "txHash": "0xf91f25f44801008a0957c58f819762ff9a556c12985bb1b27c5503d7641f568f",
+      "kind": "uups"
+    },
+    {
+      "address": "0x32cd5ecdA7f2B8633C00A0434DE28Db111E60636",
+      "txHash": "0xa02da7a3da0abc6e5711464fe5336a17d5960d200b5d167ffcf2adc7b7919267",
+      "kind": "uups"
+    },
+    {
+      "address": "0x55027d3dBBcEA0327eF73eFd74ba0Af42A13A966",
+      "txHash": "0xb25816abcc82dd1ceaee04a610e68c2cd525de45a2f190ae2ddeaa1c93728379",
+      "kind": "uups"
+    },
+    {
+      "address": "0x92b0d1Cc77b84973B7041CB9275d41F09840eaDd",
+      "txHash": "0xfd63f233d385a37c73c2790ef40246e82caec5e7676be4eff47106067ba37083",
+      "kind": "uups"
+    },
+    {
+      "address": "0x996785Fe937d92EDBF420F3Bf70Acc62ecD6f655",
+      "txHash": "0xbe25f463f4f9e5bae512e24106c9cbbdcb93cc513d0444078a441c8d6fc53b7e",
+      "kind": "uups"
+    },
+    {
+      "address": "0x1Dbbf529D78d6507B0dd71F6c02f41138d828990",
+      "txHash": "0x33c0deb779bb2d5ba4d37062a3fcdad1b1d3a2629d8568645cad74a4997efa08",
+      "kind": "uups"
+    },
+    {
+      "address": "0xf18774574148852771c2631d7d06E2A6c8b44fCA",
+      "txHash": "0x0d55d3cc235a1e23da6b6fae799ce3afa0b873f84e9f2e93ebb15aef4bea199e",
+      "kind": "uups"
+    },
+    {
+      "address": "0x9f62EE65a8395824Ee0821eF2Dc4C947a23F0f25",
+      "txHash": "0xe3e6b9a37634e33c6eb747905725f0fe0a7acc585ea8901d67b6ddd5c85cc4f9",
+      "kind": "uups"
+    },
+    {
+      "address": "0x3AeEBbEe7CE00B11cB202d6D0F38D696A3f4Ff8e",
+      "txHash": "0xd1f514db8fdca1a1110f1996dfc99a4cae66ec722a7e7d71dabd23867269328d",
+      "kind": "uups"
+    },
+    {
+      "address": "0xB2ff9d5e60d68A52cea3cd041b32f1390A880365",
+      "txHash": "0x555408bc3d633dc099ff381c5b9004ad436b616ef6d721af4ec58300c911586c",
+      "kind": "uups"
+    },
+    {
+      "address": "0xa68E430060f74F9821D2dC9A9E2CE3aF7d842EBe",
+      "txHash": "0x531537a5868f3e3a1ab579483d7539095f5f5b0eb6a4f8d6be57a72ae7de895e",
+      "kind": "uups"
+    },
+    {
+      "address": "0x8B64968F69E669faCc86FA3484FD946f1bBE7c91",
+      "txHash": "0x5e1f51146cf54f11171a0c2a0163324a05e84a4c10e61d604ed8015e463dd384",
+      "kind": "uups"
+    },
+    {
+      "address": "0x9A86494Ba45eE1f9EEed9cFC0894f6C5d13a1F0b",
+      "txHash": "0x1cd21f7b9feca6d50503871349c3b24d39c11523683c605768de17eda6ab344b",
+      "kind": "uups"
+    },
+    {
+      "address": "0xC0340c0831Aa40A0791cF8C3Ab4287EB0a9705d8",
+      "txHash": "0x3eac47ddc03e3621330318383968193e1d4d7b4cb3174c9b2f91d64d979cb51e",
+      "kind": "uups"
+    },
+    {
+      "address": "0xFf658343244c0475b9305859F1b7CDAB9784762f",
+      "txHash": "0x7722ea85b6a0067bddd6079dc382b48f031fe31bb8a298ee70c25d4a4e6f4dcd",
+      "kind": "uups"
+    },
+    {
+      "address": "0x1c1521cf734CD13B02e8150951c3bF2B438be780",
+      "txHash": "0x76b0e78f1137bd0d946d28d2fe54188f3701ff0dea80f5df823aa6eebb4a0e49",
+      "kind": "uups"
+    },
+    {
+      "address": "0x4432a6DcfAEAB227673B43C30c6fEf40eaBD5D30",
+      "txHash": "0xee802adde9a1c982d5a5fedc1b2dce0476645cf6b80cbb53c5a7fffb1a44062c",
+      "kind": "uups"
+    },
+    {
+      "address": "0x18eb8AF587dcd7E4F575040F6D800a6B5Cef6CAf",
+      "txHash": "0x6cb5059169886e9db2ea23e9903a2c8be069c8fc040669b94a06ba3df21d8391",
+      "kind": "uups"
+    },
+    {
+      "address": "0x7c02b58029beeA7c1FcC872803dC9818f57A0E61",
+      "txHash": "0x9cb01c01b156cf51ef0770d7f88588bfd2a35eb769fbfe62cf1a044c85d6acea",
       "kind": "uups"
     }
   ],
@@ -5089,6 +5374,376 @@
     "767254929d3e210f4401dafd0fcf162263bdc5f0e0bf33e04a05d070267efc29": {
       "address": "0x1780bCf4103D3F501463AD3414c7f4b654bb7aFd",
       "txHash": "0x9977c9e750f66f20983392e4ec74de9e8cc91b512dcfc984129a470f088a2e64",
+      "layout": {
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ERC1967UpgradeUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:211"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "UUPSUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:107"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "151",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "152",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:87"
+          },
+          {
+            "label": "s",
+            "offset": 0,
+            "slot": "201",
+            "type": "t_struct(AppStorage)1153_storage",
+            "contract": "UnitTrust",
+            "src": "contracts/UnitTrust.sol:14"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_struct(Investor)1164_storage)": {
+            "label": "mapping(address => struct Investor)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(AppStorage)1153_storage": {
+            "label": "struct AppStorage",
+            "members": [
+              {
+                "label": "totalUnits",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "unitPrice",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "remainingUnits",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "transferFee",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "balance",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "investor",
+                "type": "t_mapping(t_address,t_struct(Investor)1164_storage)",
+                "offset": 0,
+                "slot": "5"
+              }
+            ],
+            "numberOfBytes": "192"
+          },
+          "t_struct(Investor)1164_storage": {
+            "label": "struct Investor",
+            "members": [
+              {
+                "label": "balance",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "salePrice",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "ownedUnits",
+                "type": "t_uint16",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "saleUnits",
+                "type": "t_uint16",
+                "offset": 2,
+                "slot": "2"
+              },
+              {
+                "label": "authorized",
+                "type": "t_bool",
+                "offset": 4,
+                "slot": "2"
+              }
+            ],
+            "numberOfBytes": "96"
+          },
+          "t_uint16": {
+            "label": "uint16",
+            "numberOfBytes": "2"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    },
+    "87abe52703f37d493ef9a909c99a8724d37f112b9b22eb19d3014be6b08f664f": {
+      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "txHash": "0x91c5c4c3ceba534df370b018613d068b1c96e5680e1aceb93455f1a2b26041bd",
+      "layout": {
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ERC1967UpgradeUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:211"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "UUPSUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:107"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "151",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "152",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:87"
+          },
+          {
+            "label": "s",
+            "offset": 0,
+            "slot": "201",
+            "type": "t_struct(AppStorage)1153_storage",
+            "contract": "UnitTrust",
+            "src": "contracts/UnitTrust.sol:14"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_struct(Investor)1164_storage)": {
+            "label": "mapping(address => struct Investor)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(AppStorage)1153_storage": {
+            "label": "struct AppStorage",
+            "members": [
+              {
+                "label": "totalUnits",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "unitPrice",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "remainingUnits",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "transferFee",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "balance",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "investor",
+                "type": "t_mapping(t_address,t_struct(Investor)1164_storage)",
+                "offset": 0,
+                "slot": "5"
+              }
+            ],
+            "numberOfBytes": "192"
+          },
+          "t_struct(Investor)1164_storage": {
+            "label": "struct Investor",
+            "members": [
+              {
+                "label": "balance",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "salePrice",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "ownedUnits",
+                "type": "t_uint16",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "saleUnits",
+                "type": "t_uint16",
+                "offset": 2,
+                "slot": "2"
+              },
+              {
+                "label": "authorized",
+                "type": "t_bool",
+                "offset": 4,
+                "slot": "2"
+              }
+            ],
+            "numberOfBytes": "96"
+          },
+          "t_uint16": {
+            "label": "uint16",
+            "numberOfBytes": "2"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    },
+    "8dff3f7ad2559ec24ff64ff7c57d7f4bbf39ac0cfb6cf86b41332746af7e161b": {
+      "address": "0x87c470437282174b3f8368c7CF1Ac03bcAe57954",
+      "txHash": "0x7ed457fff1cbc0ecf9393679db68c1cf6cdc60b715610a910741401c90e48062",
       "layout": {
         "storage": [
           {

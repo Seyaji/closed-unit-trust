@@ -29,7 +29,7 @@ contract UnitTrust is  Initializable, UUPSUpgradeable, OwnableUpgradeable {
     }
 
     function getRemainingUnits() public view returns(uint256) {
-       return s.totalUnits;
+       return s.remainingUnits;
     }
 
     function getInvestor(address _investor) public view returns(Investor memory) {
@@ -69,8 +69,9 @@ contract UnitTrust is  Initializable, UUPSUpgradeable, OwnableUpgradeable {
     }
 
     function closeUnitTrust(uint256 _amount) public payable onlyOwner {
-        payable(msg.sender).transfer(_amount * (s.totalUnits - s.remainingUnits));
+        uint256 remUnits = s.remainingUnits;
         s.remainingUnits = 0;
+        payable(msg.sender).transfer(_amount * (s.totalUnits - remUnits));
     }
 
     function investorWithdraw(uint256 _amount) public payable {

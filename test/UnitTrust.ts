@@ -76,6 +76,13 @@ describe("UnitTrust tests", function() {
         })).to.be.revertedWith("Incorrect amount sent")
     })
 
+    it('should get the remaining units', async function() {
+        await unitTrust.connect(inv1).purchaseUnit(10, {
+            value: ethers.utils.parseEther("10.01")
+        })
+        expect(await unitTrust.getRemainingUnits()).to.equal(990)
+    })
+
     it("should prevent investors purchasing more than the remaining units", async function() {
         await expect(unitTrust.connect(inv1).purchaseUnit(1001, {
             value: ethers.utils.parseEther("1001.01")
@@ -137,7 +144,7 @@ describe("UnitTrust tests", function() {
         })).to.be.revertedWith("Incorrect amount sent")
     })
 
-    it('should allow the contract \'owner\' to withdraw funds', async () => {
+    it('should allow the contract \'owner\' to withdraw funds', async function() {
         await unitTrust.connect(inv1).purchaseUnit(1, {
             value: ethers.utils.parseEther("1.01")
         })
@@ -145,7 +152,7 @@ describe("UnitTrust tests", function() {
         await unitTrust.fundWithdraw(ethers.utils.parseEther("0.01"))
     })
 
-    it('should be able to close the unitTrust', async () => {
+    it('should be able to close the unitTrust', async function() {
         await unitTrust.connect(inv1).purchaseUnit(10, {
             value: ethers.utils.parseEther("10.01")
         })
@@ -153,7 +160,7 @@ describe("UnitTrust tests", function() {
         await unitTrust.closeUnitTrust(ethers.utils.parseEther("1.00"))
     })
 
-    it('should allow investors to withdraw cleared balance', async () => {
+    it('should allow investors to withdraw cleared balance', async function() {
         await unitTrust.connect(inv1).purchaseUnit(10, {
             value: ethers.utils.parseEther("10.01")
         })
@@ -163,5 +170,6 @@ describe("UnitTrust tests", function() {
             value: ethers.utils.parseEther("10.01")
         })
 
+        await unitTrust.connect(inv1).investorWithdraw( ethers.utils.parseEther("10.00"))
     })
 })

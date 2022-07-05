@@ -5,7 +5,7 @@ import { UnitTrust } from "../src/types/index"
 (async () => {
 
     const UnitTrust = await ethers.getContractFactory("UnitTrust")
-    const upgrade = await upgrades.upgradeProxy('0xfcfEd6F6494db7975Dd7D744f33Dad73175b4BaB', UnitTrust) as UnitTrust;
+    const upgrade = await upgrades.upgradeProxy('0x4351238186022D54bF43AAC83a9fA4fFd2748778', UnitTrust);
     await upgrade.deployed();
 
     console.log('Contract deployed at: ', upgrade.address)
