@@ -27,6 +27,7 @@ interface UnitTrustInterface extends ethers.utils.Interface {
     "getInvestor(address)": FunctionFragment;
     "getRemainingUnits()": FunctionFragment;
     "getTotalUnits()": FunctionFragment;
+    "getUnitPrice()": FunctionFragment;
     "initialize()": FunctionFragment;
     "investorWithdraw(uint256)": FunctionFragment;
     "owner()": FunctionFragment;
@@ -55,6 +56,10 @@ interface UnitTrustInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "getTotalUnits",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getUnitPrice",
     values?: undefined
   ): string;
   encodeFunctionData(
@@ -114,6 +119,10 @@ interface UnitTrustInterface extends ethers.utils.Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "getTotalUnits",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getUnitPrice",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
@@ -251,6 +260,8 @@ export class UnitTrust extends BaseContract {
 
     getTotalUnits(overrides?: CallOverrides): Promise<[BigNumber]>;
 
+    getUnitPrice(overrides?: CallOverrides): Promise<[BigNumber]>;
+
     initialize(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
@@ -329,6 +340,8 @@ export class UnitTrust extends BaseContract {
 
   getTotalUnits(overrides?: CallOverrides): Promise<BigNumber>;
 
+  getUnitPrice(overrides?: CallOverrides): Promise<BigNumber>;
+
   initialize(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
@@ -406,6 +419,8 @@ export class UnitTrust extends BaseContract {
     getRemainingUnits(overrides?: CallOverrides): Promise<BigNumber>;
 
     getTotalUnits(overrides?: CallOverrides): Promise<BigNumber>;
+
+    getUnitPrice(overrides?: CallOverrides): Promise<BigNumber>;
 
     initialize(overrides?: CallOverrides): Promise<void>;
 
@@ -532,6 +547,8 @@ export class UnitTrust extends BaseContract {
 
     getTotalUnits(overrides?: CallOverrides): Promise<BigNumber>;
 
+    getUnitPrice(overrides?: CallOverrides): Promise<BigNumber>;
+
     initialize(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
@@ -602,6 +619,8 @@ export class UnitTrust extends BaseContract {
     getRemainingUnits(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getTotalUnits(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    getUnitPrice(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     initialize(
       overrides?: Overrides & { from?: string | Promise<string> }
