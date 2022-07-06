@@ -66,7 +66,6 @@ contract UnitTrust is  Initializable, UUPSUpgradeable, OwnableUpgradeable {
 
     function fundWithdraw(uint256 _amount) public payable onlyOwner {
         require(s.balance >= _amount, "Not enough funds");
-        console.log(s.balance);
         s.balance -= _amount;
         payable(msg.sender).transfer(_amount);
     }
