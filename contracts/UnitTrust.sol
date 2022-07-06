@@ -58,7 +58,7 @@ contract UnitTrust is  Initializable, UUPSUpgradeable, OwnableUpgradeable {
     function transferUnit(address _seller, uint16 _amount) public payable {
         require(msg.value == (_amount * s.investor[_seller].salePrice) + s.transferFee , "Incorrect amount sent");
         require(s.investor[_seller].saleUnits >= _amount, "Not enough units for sale");
-        s.investor[_seller].balance += msg.value;
+        s.investor[_seller].balance += (msg.value - s.transferFee);
         s.investor[_seller].saleUnits -= _amount;
         s.investor[msg.sender].ownedUnits += _amount;
         s.balance += s.transferFee;
