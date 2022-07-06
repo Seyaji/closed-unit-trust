@@ -42,7 +42,7 @@ contract UnitTrust is  Initializable, UUPSUpgradeable, OwnableUpgradeable {
     function purchaseUnit(uint16 _amount) public payable {
         require(s.remainingUnits >= _amount, "No enough units");
         require(msg.value == _amount * 1 ether + s.transferFee, "Incorrect amount sent");
-        s.investor[msg.sender].ownedUnits = _amount;
+        s.investor[msg.sender].ownedUnits += _amount;
         s.remainingUnits -= _amount;
         s.balance += s.transferFee;
     }

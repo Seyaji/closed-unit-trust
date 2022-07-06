@@ -51,7 +51,6 @@ describe("UnitTrust tests", function() {
         
         expect(await instance.getTotalUnits()).to.equal(1000)
         expect(await upgraded.getTotalUnits()).to.equal(1000)
-
     })
 
     beforeEach(async function() {
@@ -68,6 +67,22 @@ describe("UnitTrust tests", function() {
         const investor = pairKeys(investorKeys, getInvestor)
 
         expect(investor.ownedUnits).to.equal(10)
+    })
+
+    it('should track multiple unit purchases', async function() {
+        await unitTrust.connect(inv1).purchaseUnit(10, {
+            value: ethers.utils.parseEther("10.01")
+        })
+        await unitTrust.connect(inv1).purchaseUnit(5, {
+            value: ethers.utils.parseEther("5.01")
+        })
+        await unitTrust.connect(inv1).purchaseUnit(1, {
+            value: ethers.utils.parseEther("1.01")
+        })
+        const getInvestor = await unitTrust.getInvestor(inv1.address)
+        const investor = pairKeys(investorKeys, getInvestor)
+
+        expect(investor.ownedUnits).to.equal(16)
     })
 
     it("should prevent purchase of units when wrong amount sent", async function() {
