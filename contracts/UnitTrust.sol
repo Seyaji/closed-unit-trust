@@ -23,6 +23,10 @@ contract UnitTrust is  Initializable, UUPSUpgradeable, OwnableUpgradeable {
 
     function _authorizeUpgrade(address) internal override onlyOwner {}
 
+    function getBalance() public view returns (uint256) {
+        return s.balance;
+    }
+
     function getUnitPrice() public view returns(uint256) {
         return s.unitPrice;
     }
