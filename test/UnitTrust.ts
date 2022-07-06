@@ -46,8 +46,8 @@ describe("UnitTrust tests", function() {
         const UnitTrust = await ethers.getContractFactory("UnitTrust")
         const UnitTrustV2 = await ethers.getContractFactory("UnitTrustV2")
 
-        const instance = await upgrades.deployProxy(UnitTrust, { kind: "uups" });
-        const upgraded = await upgrades.upgradeProxy(instance.address, UnitTrustV2);
+        const instance = await upgrades.deployProxy(UnitTrust, { kind: "uups" }) as UnitTrust;
+        const upgraded = await upgrades.upgradeProxy(instance.address, UnitTrustV2) as UnitTrustV2;
         
         expect(await instance.getTotalUnits()).to.equal(1000)
         expect(await upgraded.getTotalUnits()).to.equal(1000)
@@ -191,14 +191,7 @@ describe("UnitTrust tests", function() {
         })
 
         await unitTrust.fundWithdraw(ethers.utils.parseEther("0.01"))
-    })
-
-    it('should be able to close the unitTrust', async function() {
-        await unitTrust.connect(inv1).purchaseUnit(10, {
-            value: ethers.utils.parseEther("10.01")
-        })
-
-        await unitTrust.closeUnitTrust(ethers.utils.parseEther("1.00"))
+        expect(await unitTrust.getBalance()).to.equal(0)
     })
 
     it('should allow investors to withdraw cleared balance', async function() {
@@ -206,11 +199,34 @@ describe("UnitTrust tests", function() {
             value: ethers.utils.parseEther("10.01")
         })
 
+        let getInvestor = await unitTrust.getInvestor(inv1.address)
+        let investor = pairKeys(investorKeys, getInvestor)
+        expect(investor.balance).to.equal(0)
+
         await unitTrust.connect(inv1).postUnit(5, ethers.utils.parseEther("2.00"))
         await unitTrust.connect(inv2).transferUnit(inv1.address, 5, {
             value: ethers.utils.parseEther("10.01")
         })
 
+        getInvestor = await unitTrust.getInvestor(inv1.address)
+        investor = pairKeys(investorKeys, getInvestor)
+        expect(investor.balance).to.equal(ethers.utils.parseEther("10.00"))
+
         await unitTrust.connect(inv1).investorWithdraw( ethers.utils.parseEther("10.00"))
+
+        getInvestor = await unitTrust.getInvestor(inv1.address)
+        investor = pairKeys(investorKeys, getInvestor)
+        expect(investor.balance).to.equal(0)
     })
+
+    // currently for testing purposes to reclaim ether -> actions like this should be outsourced to a DAO
+    it('should be able to close the unitTrust', async function() {
+        await unitTrust.connect(inv1).purchaseUnit(10, {
+            value: ethers.utils.parseEther("10.01")
+        })
+
+        await unitTrust.closeUnitTrust(ethers.utils.parseEther("1.00"))
+        expect(await unitTrust.getRemainingUnits()).to.equal(0)
+    })
+
 })
