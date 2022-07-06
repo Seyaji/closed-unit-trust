@@ -149,6 +149,32 @@ describe("UnitTrust tests", function() {
         expect(investor2.ownedUnits).to.equal(5)
     })
 
+    it("should track user balance correctly", async function() {
+        await unitTrust.connect(inv1).purchaseUnit(1, {
+            value: ethers.utils.parseEther("1.01")
+        })
+        await unitTrust.connect(inv1).purchaseUnit(1, {
+            value: ethers.utils.parseEther("1.01")
+        })
+        await unitTrust.connect(inv1).purchaseUnit(2, {
+            value: ethers.utils.parseEther("2.01")
+        })
+        await unitTrust.connect(inv1).postUnit(4, ethers.utils.parseEther("2.00"))
+        await unitTrust.connect(inv2).transferUnit(inv1.address, 3, {
+            value: ethers.utils.parseEther("6.01")
+        })
+
+        const getInvestor1 = await unitTrust.getInvestor(inv1.address)
+        const investor1 = pairKeys(investorKeys, getInvestor1)
+        const getInvestor2 = await unitTrust.getInvestor(inv2.address)
+        const investor2 = pairKeys(investorKeys, getInvestor2)
+
+        expect(investor1.saleUnits).to.equal(1)
+        expect(investor2.ownedUnits).to.equal(3)
+        expect(investor1.balance).to.equal(ethers.utils.parseEther("6.0"))
+
+    })
+
     it("should prevent investors from transferring units when incorrect amount sent", async function() {
         await unitTrust.connect(inv1).purchaseUnit(1, {
             value: ethers.utils.parseEther("1.01")
