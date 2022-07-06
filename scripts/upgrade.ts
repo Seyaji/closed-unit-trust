@@ -1,11 +1,9 @@
 import { ethers, upgrades } from "hardhat"
 
-import { UnitTrust } from "../src/types/index"
-
 (async () => {
 
     const UnitTrust = await ethers.getContractFactory("UnitTrust")
-    const upgrade = await upgrades.upgradeProxy('0x4351238186022D54bF43AAC83a9fA4fFd2748778', UnitTrust);
+    const upgrade = await upgrades.upgradeProxy('0x2582B38c522D776b4a68726e941617eCc3259241', UnitTrust);
     await upgrade.deployed();
 
     console.log('Contract deployed at: ', upgrade.address)
